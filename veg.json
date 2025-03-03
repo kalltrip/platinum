@@ -10,7 +10,7 @@
     "category": "North Indian",
     "image": "Teyzee_Show_menu_Images/Paneer_Tikka_320w_240h.jpg",
     "veg": true,
-    "startTime": 18,
+    "startTime": 12,
     "endTime": 23
   },
   {
@@ -39,7 +39,7 @@
     "image": "Teyzee_Show_menu_Images/Vegetable_Biryani_320w_240h.jpg",
     "veg": true,
     "startTime": 7,
-    "endTime": 12
+    "endTime": 22
   },
   {
     "id": "1004",
@@ -53,7 +53,7 @@
     "image": "Teyzee_Show_menu_Images/Vegetable_Lasagna_320w_240h.jpg",
     "veg": true,
     "startTime": 7,
-    "endTime": 15
+    "endTime": 19
   },
   {
     "id": "1005",
@@ -66,8 +66,8 @@
     "category": "Chinese",
     "image": "Teyzee_Show_menu_Images/Vegetable_Manchurian_320w_240h.jpg",
     "veg": true,
-    "startTime": 7,
-    "endTime": 15
+    "startTime": 16,
+    "endTime": 23
   },
   {
     "id": "1006",

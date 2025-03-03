@@ -52,7 +52,7 @@ function populateMenu(data, containerId) {
                     <p class="dish-description" 
                         data-full="${fullDesc}" 
                         data-short="${shortDesc}">
-                        ${window.innerWidth < 480 ? shortDesc + ' <span class="read-more" style="color: wheat; cursor: pointer;">Read More</span>' : fullDesc}
+                        ${window.innerWidth < 480 ? shortDesc + ' <span class="read-more" style="color: #31B404; cursor: pointer;">Read More</span>' : fullDesc}
                     </p>
                 </div>
                 <img alt="${dish.name}" data-src="${dish.image}" class="lazy-img" />
@@ -99,13 +99,13 @@ function handleReadMore() {
         let shortText = desc.getAttribute("data-short");
         let fullText = desc.getAttribute("data-full");
 
-        desc.innerHTML = shortText + ' <span class="read-more" style="color: wheat; cursor: pointer;">Read More</span>';
+        desc.innerHTML = shortText + ' <span class="read-more" style="color: #31B404; cursor: pointer;">Read More</span>';
 
         desc.addEventListener("click", function (event) {
             if (event.target.classList.contains("read-more")) {
-                desc.innerHTML = fullText + ' <span class="read-less" style="color: wheat; cursor: pointer;">Read Less</span>';
+                desc.innerHTML = fullText + ' <span class="read-less" style="color: #31B404; cursor: pointer;">Read Less</span>';
             } else if (event.target.classList.contains("read-less")) {
-                desc.innerHTML = shortText + ' <span class="read-more" style="color: wheat; cursor: pointer;">Read More</span>';
+                desc.innerHTML = shortText + ' <span class="read-more" style="color: #31B404; cursor: pointer;">Read More</span>';
             }
         });
     });
@@ -119,7 +119,7 @@ function handleResize() {
         if (window.innerWidth >= 480) {
             desc.innerHTML = fullText;
         } else {
-            desc.innerHTML = shortText + ' <span class="read-more" style="color: wheat; cursor: pointer;">Read More</span>';
+            desc.innerHTML = shortText + ' <span class="read-more" style="color: #31B404; cursor: pointer;">Read More</span>';
             handleReadMore();
         }
     });
