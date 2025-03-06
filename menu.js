@@ -55,7 +55,6 @@ function populateMenu(data, containerId) {
                         ${window.innerWidth < 480 ? shortDesc + ' <span class="read-more" style="color: #31B404; cursor: pointer;">Read More</span>' : fullDesc}
                     </p>
                 </div>
-                <img alt="${dish.name}" data-src="${dish.image}" class="lazy-img" />
             </div>
             <div class="dish-footer">
                 <span class="tag" onclick="filterDishes('${categoryClass}')">${dish.category}</span>
@@ -133,28 +132,25 @@ function filterDishes(category) {
         dish.style.display = category === "all" || dish.classList.contains(category) ? "block" : "none";
     });
 }
+document.addEventListener("DOMContentLoaded", function () {
+    setTimeout(() => {
+        const currentHour = new Date().getHours();
+        console.log("Current Hour:", currentHour); // Debugging line
 
-function selectDish(dishName, button) {
-    const currentHour = new Date().getHours();
-    if (button.disabled) {
-        alert("This dish is not available at this time.");
-        return;
-    }
-    if (currentHour >= 23 || currentHour < 7) {
-        alert("Restaurant is closed. Orders can be placed from 7 AM to 8 PM.");
-        return;
-    }
+        const buttons = document.querySelectorAll(".btn");
 
-    const orderList = document.getElementById("order-list");
-    if (!orderList) {
-        alert(`Added to Order: ${dishName}`);
-        return;
-    }
+        if (currentHour < 7 || currentHour >= 23) {
+            console.log("Restaurant is closed. Disabling buttons."); // Debugging line
+            buttons.forEach(button => {
+                button.disabled = true;
+                button.style.opacity = "0.5";
+                button.style.cursor = "not-allowed";
+                button.textContent = "Restaurant Closed";
+            });
+        }
+    }, 500); // Small delay to ensure elements exist
+});
 
-    const orderItem = document.createElement("li");
-    orderItem.textContent = dishName;
-    orderList.appendChild(orderItem);
-}
 
 document.addEventListener("DOMContentLoaded", function () {
     const buttons = document.querySelectorAll(".btn");

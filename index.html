@@ -258,7 +258,7 @@
     }       
     function updateTheme() {
     const currentHour = new Date().getHours();
-    const isLightMode = currentHour >= 7 && currentHour < 12; // 7 AM to 7 PM
+    const isLightMode = currentHour >= 7 && currentHour < 16; // 7 AM to 7 PM
 
     document.body.classList.toggle("light-mode", isLightMode);
     document.body.classList.toggle("dark-mode", !isLightMode);
