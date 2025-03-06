@@ -8,6 +8,7 @@
     "rating": 4.5,
     "description": "Succulent cubes of paneer marinated in aromatic spices and grilled to perfection. A classic vegetarian delight.",
     "category": "North Indian",
+    "image": "Teyzee_Show_menu_Images/Paneer_Tikka_320w_240h.jpg",
     "veg": true,
     "startTime": 12,
     "endTime": 23
@@ -21,6 +22,7 @@
     "rating": 4.7,
     "description": "Creamy spinach curry with soft paneer cubes. A nutritious and flavorful North Indian favorite.",
     "category": "North Indian",
+    "image": "Teyzee_Show_menu_Images/Palak_Paneer_320w_240h.jpg",
     "veg": true,
     "startTime": 12,
     "endTime": 19
@@ -34,9 +36,10 @@
     "rating": 4.4,
     "description": "Fragrant basmati rice cooked with mixed vegetables and aromatic spices. A festive one-pot meal.",
     "category": "South Indian",
+    "image": "Teyzee_Show_menu_Images/Vegetable_Biryani_320w_240h.jpg",
     "veg": true,
-    "startTime": 12,
-    "endTime": 23
+    "startTime": 7,
+    "endTime": 22
   },
   {
     "id": "1004",
@@ -47,9 +50,10 @@
     "rating": 4.5,
     "description": "Layers of pasta, mixed vegetables, and cheese baked to golden perfection. A comforting Italian-inspired dish.",
     "category": "Italian",
+    "image": "Teyzee_Show_menu_Images/Vegetable_Lasagna_320w_240h.jpg",
     "veg": true,
-    "startTime": 17,
-    "endTime": 24
+    "startTime": 7,
+    "endTime": 19
   },
   {
     "id": "1005",
@@ -60,9 +64,10 @@
     "rating": 4.5,
     "description": "Crispy vegetable dumplings tossed in a tangy and spicy sauce. An Indo-Chinese favorite.",
     "category": "Chinese",
+    "image": "Teyzee_Show_menu_Images/Vegetable_Manchurian_320w_240h.jpg",
     "veg": true,
-    "startTime": 12,
-    "endTime": 19
+    "startTime": 16,
+    "endTime": 23
   },
   {
     "id": "1006",
@@ -73,6 +78,7 @@
     "rating": 4.1,
     "description": "Yellow lentils tempered with cumin, garlic, and aromatic spices. A protein-packed comfort food.",
     "category": "North Indian",
+    "image": "Teyzee_Show_menu_Images/Dal_Tadka_320w_240h.jpg",
     "veg": true,
     "startTime": 7,
     "endTime": 15
@@ -86,6 +92,7 @@
     "rating": 4.0,
     "description": "Cauliflower and potatoes cooked with turmeric, cumin, and other spices. A classic North Indian dish.",
     "category": "North Indian",
+    "image": "Teyzee_Show_menu_Images/Aloo_Gobi_320w_240h.jpg",
     "veg": true,
     "startTime": 7,
     "endTime": 15
@@ -99,6 +106,7 @@
     "rating": 4.0,
     "description": "Chickpeas simmered in a spicy tomato-based sauce with onions and aromatic spices.",
     "category": "North Indian",
+    "image": "Teyzee_Show_menu_Images/Chana_Masala_320w_240h.jpg",
     "veg": true,
     "startTime": 7,
     "endTime": 15
@@ -112,6 +120,7 @@
     "rating": 4.5,
     "description": "Riced cauliflower stir-fried with low-carb vegetables and your choice of protein.",
     "category": "Healthy",
+    "image": "Teyzee_Show_menu_Images/Cauliflower_Rice_Stir_Fry_320w_240h.jpg",
     "veg": true,
     "startTime": 7,
     "endTime": 15
@@ -125,6 +134,7 @@
     "rating": 4.5,
     "description": "Fresh spinach and mushrooms sautéed with garlic and spices. A low-carb vegetarian delight.",
     "category": "Healthy",
+    "image": "Teyzee_Show_menu_Images/Spinach_Mushroom_Stir_Fry_320w_240h.jpg",
     "veg": true,
     "startTime": 7,
     "endTime": 15
@@ -138,6 +148,7 @@
     "rating": 4.5,
     "description": "Grilled paneer cubes seasoned with keto-friendly spices. A protein-rich vegetarian option.",
     "category": "Healthy",
+    "image": "Teyzee_Show_menu_Images/Paneer_Tikka_320w_240h.jpg",
     "veg": true,
     "startTime": 7,
     "endTime": 15

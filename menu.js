@@ -55,6 +55,7 @@ function populateMenu(data, containerId) {
                         ${window.innerWidth < 480 ? shortDesc + ' <span class="read-more" style="color: #31B404; cursor: pointer;">Read More</span>' : fullDesc}
                     </p>
                 </div>
+                <img alt="${dish.name}" data-src="${dish.image}" class="lazy-img" />
             </div>
             <div class="dish-footer">
                 <span class="tag" onclick="filterDishes('${categoryClass}')">${dish.category}</span>
@@ -132,6 +133,7 @@ function filterDishes(category) {
         dish.style.display = category === "all" || dish.classList.contains(category) ? "block" : "none";
     });
 }
+
 document.addEventListener("DOMContentLoaded", function () {
     setTimeout(() => {
         const currentHour = new Date().getHours();
@@ -150,7 +152,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }, 500); // Small delay to ensure elements exist
 });
-
 
 document.addEventListener("DOMContentLoaded", function () {
     const buttons = document.querySelectorAll(".btn");

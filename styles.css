@@ -15,7 +15,7 @@ body {
 .light-mode {
     background-color: white;
     color: black;
-    
+    filter: brightness(100%)
 }
 
 .light-mode .content,
@@ -26,7 +26,7 @@ body {
 
 
 .light-mode .dish {
-    background-color: white;
+    background-color: #f9f9f9;
     border-color: #ccc;
 }
 
@@ -38,23 +38,25 @@ body {
 .dark-mode {
     background-color: black;
     color: white;
-    /* filter: grayscale(40%); */
+    filter: grayscale(20%);
 }
-
+.dark-mode .container{
+    background-color: #181818;
+}
 .dark-mode .content,
 .dark-mode .header{
-    background-color: #000000;
+    background-color: #111;
     color: white;
 }
 .dark-mode .vegetarian,.dark-mode .non-vegetarian{
     color: #ffffff;
-    background-color: #222;
+    background-color: black;
 }
 .dark-mode .footer,
 .dark-mode .restaurant-info{
     background-color: darkblue;
     filter: brightness(70%);
-     filter: grayscale(50%);
+     filter: grayscale(20%);
 }
 .dark-mode .dish {
     background-color: black;
@@ -66,10 +68,10 @@ body {
 }
 
 .dark-mode .category-nav{
-    background-color: #000000;
+    background-color: #0a0a0a;
 }
-.dark-mode .container{
-    background-color:#222;
+.dark-mode .read-more{
+    color: whitesmoke;
 }
 .container {
     flex: 1;
@@ -78,8 +80,9 @@ body {
     margin: 0 auto;
     padding: 0px;
     line-height: 2rem;
-    background-color: #f0f0f0;
+    background-color: #e1dbdb;
     border: 2px solid #d1d1d1;
+    /* text-align: center; */
     position: relative;
     /* Ensures positioning context for sticky */
 }
@@ -128,7 +131,6 @@ body {
     border-radius: 10px;
     padding: 15px;
     margin-bottom: 20px;
-    background-color: #fff;
     display: flex;
     flex-direction: column;
 }
@@ -238,6 +240,7 @@ body {
     border: none;
 }
 
+
 #hide-nav {
     background-color: #007bff;
     color: white;
@@ -274,6 +277,13 @@ body {
     margin-top: 15px;
 }
 
+/* Separate Show/Hide Button */
+.menu-toggle-container {
+
+    text-align: center;
+    margin-bottom: 10px;
+}
+
 .menu-item .price {
     font-size: 18px;
     color: #e63946;
@@ -296,8 +306,16 @@ body {
     /* font-weight: bold; */
 }
 
-.offer {
-  color: green;
+.menu-item .offer {
+    background: #ffcc00;
+    color: #222;
+    padding: 5px 10px;
+    font-size: 14px;
+    border-radius: 5px;
+    display: block;
+    margin-top: 5px;
+    text-align: center;
+    font-weight: bold;
 }
 
 .dish-pricing {
@@ -460,7 +478,7 @@ font-weight: bold;
         font-size: 0.9rem;
         line-height: 1.5rem;
     }
-
+    
 
     .restaurant-info {
         /* padding: 12px 0px; */
@@ -491,7 +509,7 @@ font-weight: bold;
         position: sticky;
         top: 70px;
         /* Adjust to match .restaurant-info height */
-        background-color:#ffffff;
+       
         padding: 3px 0px;
         /* display: flex; */
     }
