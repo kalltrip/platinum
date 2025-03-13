@@ -11,6 +11,7 @@ body {
     padding: 0px;
     margin: 0px;
 }
+
 /* Light Mode (7 AM - 7 PM) */
 .light-mode {
     background-color: white;
@@ -40,24 +41,30 @@ body {
     color: white;
     filter: grayscale(20%);
 }
-.dark-mode .container{
+
+.dark-mode .container {
     background-color: #181818;
 }
+
 .dark-mode .content,
-.dark-mode .header{
+.dark-mode .header {
     background-color: #111;
     color: white;
 }
-.dark-mode .vegetarian,.dark-mode .non-vegetarian{
+
+.dark-mode .vegetarian,
+.dark-mode .non-vegetarian {
     color: #ffffff;
     background-color: black;
 }
+
 .dark-mode .footer,
-.dark-mode .restaurant-info{
+.dark-mode .restaurant-info {
     background-color: darkblue;
     filter: brightness(70%);
-     filter: grayscale(20%);
+    filter: grayscale(20%);
 }
+
 .dark-mode .dish {
     background-color: black;
     border-color: #ff4d4d;
@@ -67,12 +74,14 @@ body {
     color: rgb(250, 242, 227);
 }
 
-.dark-mode .category-nav{
+.dark-mode .category-nav {
     background-color: #0a0a0a;
 }
-.dark-mode .read-more{
+
+.dark-mode .read-more {
     color: whitesmoke;
 }
+
 .container {
     flex: 1;
     width: auto;
@@ -219,16 +228,19 @@ body {
     /* gap: 20px; */
     flex-wrap: wrap;
 }
-.link,.footer-text{
+
+.link,
+.footer-text {
     color: #555;
     padding: 0px;
     text-decoration: none;
 }
+
 /* Button styling */
 #toggle-nav,
 .cta-button,
 .placeorder,
-.location{
+.location {
     padding: 6px 12px;
     font-size: 1.0rem;
     cursor: pointer;
@@ -245,17 +257,22 @@ body {
     background-color: #007bff;
     color: white;
     padding: 10px 20px;
-    font-size: 0.9rem;
+    font-size: 1rem;
     cursor: pointer;
     border-radius: 5px;
     text-align: center;
     font-weight: bold;
+    text-transform: uppercase;
+    border-bottom: 1px dotted #333;
+    margin: 5px 0px;
 }
+
+
 
 /* Menu styling (hidden initially) */
 #menu-container {
     display: none;
-    margin-top: 15px;
+    /* margin-top: 15px; */
     text-align: center;
 
 }
@@ -265,8 +282,10 @@ body {
     text-decoration: none;
     color: black;
     padding: 5px 0;
-    font-size: 0.9rem;
-    background-color: #a5c7ff;
+    font-size: 1rem;
+    background-color: #c0d8ff;
+    text-transform: uppercase;
+    border-bottom: 1px dashed #333;border-width: thin; 
 }
 
 /* Adjust WhatsApp and Call Us when menu is open */
@@ -376,7 +395,7 @@ body {
     background-color: #fff;
 }
 
-.btn, 
+.btn,
 .dish-counter {
     background-color: yellow;
     font-family: 'Roboto', sans-serif;
@@ -392,7 +411,7 @@ body {
     align-items: center;
     justify-content: center;
     transition: background 0.3s;
-   
+
 }
 
 /* Dish Counter Wrapper */
@@ -402,13 +421,15 @@ body {
     gap: 10px;
     padding: 0px 15px;
 }
+
 .minus,
-.plus,.count
-{
-margin: 0px;
-padding: 0px 6px;
-font-weight: bold;
+.plus,
+.count {
+    margin: 0px;
+    padding: 0px 6px;
+    font-weight: bold;
 }
+
 .dish-footer {
     display: flex;
     justify-content: space-between;
@@ -473,12 +494,12 @@ font-weight: bold;
         font-size: 14px;
         /* padding: 5px; */
     }
-    
+
     .dish-description {
         font-size: 0.9rem;
         line-height: 1.5rem;
     }
-    
+
 
     .restaurant-info {
         /* padding: 12px 0px; */
@@ -509,10 +530,11 @@ font-weight: bold;
         position: sticky;
         top: 70px;
         /* Adjust to match .restaurant-info height */
-       
+
         padding: 3px 0px;
         /* display: flex; */
     }
+
     .category-nav button {
         padding: 3px 6px;
         border: none;
@@ -522,6 +544,7 @@ font-weight: bold;
 .dish-raiting {
     color: #007bff;
 }
+
 /* Styles for unavailable dishes */
 .dish .order-btn:disabled {
     background-color: #f1cb10;

@@ -211,3 +211,209 @@ function sendLocationOnWhatsApp() {
         alert("Geolocation is not supported by your browser.");
     }
 }
+
+document.getElementById("toggle-nav").addEventListener("click", function () {
+    document.getElementById("menu-container").style.display = "block";
+    document.getElementById("footer-main").style.display = "none";
+});
+
+document.getElementById("toggle-nav").addEventListener("click", function () {
+    document.getElementById("menu-container").style.display = "block";
+    document.getElementById("footer-main").style.display = "none";
+
+    // Hide footer-text when menu is open
+    let footerText = document.querySelector(".footer-text");
+    if (footerText) {
+        footerText.style.display = "none";
+    }
+});
+
+document.getElementById("hide-nav").addEventListener("click", function () {
+    document.getElementById("menu-container").style.display = "none";
+    document.getElementById("footer-main").style.display = "flex";
+
+    // Show footer-text again when menu is hidden
+    let footerText = document.querySelector(".footer-text");
+    if (footerText) {
+        footerText.style.display = "block";
+    }
+});
+
+
+function filterDishes(category) {
+    // Hide all dishes initially
+    let allDishes = document.querySelectorAll('.dish');
+    allDishes.forEach(dish => {
+        dish.style.display = 'none';
+    });
+
+    // Show dishes that belong to the selected category
+    let selectedDishes = document.querySelectorAll('.dish');
+    selectedDishes.forEach(dish => {
+        if (dish.classList.contains(category)) {
+            dish.style.display = 'block';
+        }
+    });
+}
+
+// Select all menu links
+document.querySelectorAll("#menu-nav a").forEach(menuItem => {
+    menuItem.addEventListener("click", function () {
+        // Hide the menu container
+        document.getElementById("menu-container").style.display = "none";
+        // Show the footer-main again
+        document.getElementById("footer-main").style.display = "flex";
+    });
+});
+
+function filterDishes(category) {
+    let allDishes = document.querySelectorAll('.dish');
+
+    if (category === 'all') {
+        // Show all dishes if "Show All" is clicked
+        allDishes.forEach(dish => {
+            dish.style.display = 'block';
+        });
+    } else {
+        // Hide all dishes first
+        allDishes.forEach(dish => {
+            dish.style.display = 'none';
+        });
+
+        // Show only dishes that match the selected category
+        document.querySelectorAll(`.dish.${category}`).forEach(dish => {
+            dish.style.display = 'block';
+        });
+    }
+}
+let selectedDishes = {};
+let whatsappNumber = "";
+let upiId = "";
+fetch("header.json")
+    .then(response => response.json())
+    .then(data => {
+        document.querySelector(".restaurant-name").textContent = data.restaurantName;
+        document.querySelector(".restaurant-details").textContent = `${data.address} | ${data.contact}`;
+        whatsappNumber = data.whatsappNumber;
+        upiId = data.upiId;
+    })
+    .catch(error => console.error("Error loading header data:", error));
+
+function selectDish(dishName, buttonElement) {
+    if (!selectedDishes[dishName]) {
+        selectedDishes[dishName] = 1;
+        toggleCounter(buttonElement, dishName);
+    }
+}
+
+function toggleCounter(buttonElement, dishName) {
+    const wrapper = document.createElement("div");
+    wrapper.className = "dish-counter";
+    wrapper.innerHTML = `
+<button class="minus" onclick="updateCount('${dishName}', -1, this)">-</button>
+<span class="count">${selectedDishes[dishName]}</span>
+<button class="plus" onclick="updateCount('${dishName}', 1, this)">+</button>
+`;
+
+    buttonElement.style.display = "none";
+    buttonElement.parentNode.appendChild(wrapper);
+}
+
+function updateCount(dishName, change, buttonElement) {
+    selectedDishes[dishName] = (selectedDishes[dishName] || 0) + change;
+
+    if (selectedDishes[dishName] <= 0) {
+        delete selectedDishes[dishName];
+
+        const counterElement = buttonElement.parentNode;
+        const addButton = counterElement.parentNode.querySelector(".btn");
+
+        counterElement.remove();
+        addButton.style.display = "inline-block";
+    } else {
+        buttonElement.parentNode.querySelector(".count").textContent = selectedDishes[dishName];
+    }
+}
+
+
+// Update Order List & Show Total Price
+function updateOrderList() {
+    const orderList = document.getElementById("order-list");
+    const totalPriceElement = document.getElementById("total-price");
+
+    if (orderList) {
+        orderList.innerHTML = ""; // Clear before updating
+
+        Object.entries(selectedDishes).forEach(([dish, quantity]) => {
+            const orderItem = document.createElement("li");
+            orderItem.textContent = `${dish} - Qty: ${quantity}`;
+            orderList.appendChild(orderItem);
+        });
+    }
+
+    if (totalPriceElement) {
+        totalPriceElement.innerText = `Total: Rs ${calculateTotal()}`;
+    }
+}
+
+// Calculate Total Price
+function calculateTotal() {
+    let total = 0;
+
+    Object.entries(selectedDishes).forEach(([dish, quantity]) => {
+        const price = parseFloat(dish.match(/Rs (\d+)/)?.[1] || 0);
+        total += price * quantity;
+    });
+
+    return total;
+}
+
+// Generate UPI Link
+function generateUPILink(amount) {
+    const isGooglePay = true; // Set this flag if you want to generate the Google Pay link
+    let upiLink = "";
+
+    if (isGooglePay) {
+        upiLink = `upi://pay?pa=${upiId}&pn=%20&tr=%20&am=${amount}&cu=INR`;
+    } else {
+        upiLink = `upi://pay?pa=${upiId}&am=${amount}&cu=INR`;
+    }
+    return upiLink;
+}
+
+function shareOnWhatsApp() {
+    if (Object.keys(selectedDishes).length === 0) {
+        alert("Please select at least one dish.");
+        return;
+    }
+
+    if (!whatsappNumber || !upiId) {
+        alert("WhatsApp number or UPI ID not found. Please try again later.");
+        return;
+    }
+
+    let orderSummary = Object.entries(selectedDishes)
+        .map(([dish, quantity], index) => `${index + 1}. ${dish} - Qty: ${quantity}`)
+        .join("\n");
+
+    let orderTotal = calculateTotal();
+    const upiLink = generateUPILink(orderTotal);
+    const whatsappMessage = `Order Details:\n${orderSummary}\n\nPay Total Rs ${orderTotal} to Restaurant on UPI ID ${upiLink}`;
+    const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+    window.open(whatsappURL, "_blank");
+}
+function updateTheme() {
+    const currentHour = new Date().getHours();
+    const isLightMode = currentHour >= 7 && currentHour < 19; // 7 AM to 7 PM
+
+    document.body.classList.toggle("light-mode", isLightMode);
+    document.body.classList.toggle("dark-mode", !isLightMode);
+
+    document.querySelectorAll(".content, .header, .footer, .dish").forEach(element => {
+        element.classList.toggle("dark-content", !isLightMode);
+        element.classList.toggle("light-content", isLightMode);
+    });
+}
+
+updateTheme();
+setInterval(updateTheme, 60000);
